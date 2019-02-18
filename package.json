@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf build && yarn webpack --watch --config webpack.dev.babel.js",
-    "build": "rm -rf build && yarn webpack --config webpack.prod.babel.js"
+    "build": "rm -rf build && yarn webpack --config webpack.prod.babel.js",
+    "heroku-postbuild": "NODE_ENV=production && yarn build"
   },
   "lint-staged": {
     "*.ts": [
