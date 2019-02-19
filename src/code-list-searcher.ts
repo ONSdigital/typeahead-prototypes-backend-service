@@ -23,8 +23,8 @@ const codeLists = {
 };
 
 const allowedOrigins = [
-  'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
-  'http://localhost:3333'
+  'http://localhost:3333',
+  'sdc-prototypes.netlify.com'
 ];
 
 export default function initialiseSearch(server: Express): void {
@@ -35,7 +35,7 @@ export default function initialiseSearch(server: Express): void {
       server.post(`/${listName}`, (request, response) => {
         const origin = <string>request.headers.origin;
 
-        if (allowedOrigins.includes(origin)) {
+        if (originIsAllowed(origin)) {
           const query = (request.body.query || '').trim().toLowerCase();
           const language = request.body.lang;
           const maxResults = request.body.max ? parseInt(request.body.max, 10) : 10;
@@ -73,4 +73,8 @@ export default function initialiseSearch(server: Express): void {
       });
     }
   }
+}
+
+function originIsAllowed(origin: string) {
+  return !!allowedOrigins.find(o => origin.includes(o));
 }
