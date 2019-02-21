@@ -19,7 +19,8 @@ const codeLists = {
   'ethnic-groups-asian': <ICodeListItem[]>require('./code-lists/ethnic-groups-asian.json'),
   'ethnic-groups-black': <ICodeListItem[]>require('./code-lists/ethnic-groups-black.json'),
   'ethnic-groups-arab': <ICodeListItem[]>require('./code-lists/ethnic-groups-arab.json'),
-  occupation: <ICodeListItem[]>require('./code-lists/occupations.json')
+  occupation: <ICodeListItem[]>require('./code-lists/occupations.json'),
+  'sic-alphabetical': <ICodeListItem[]>require('./code-lists/sic-alphabetical.json'),
 };
 
 const allowedOrigins = [
