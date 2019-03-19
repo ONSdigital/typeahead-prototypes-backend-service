@@ -24,8 +24,9 @@ const codeLists = {
 };
 
 const allowedOrigins = [
-  'http://localhost:3333',
-  'sdc-prototypes.netlify.com'
+  'http://localhost',
+  'sdc-prototypes.netlify.com',
+  'eq-prototypes.netlify.com'
 ];
 
 export default function initialiseSearch(server: Express): void {
