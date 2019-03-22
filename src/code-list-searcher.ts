@@ -19,6 +19,13 @@ const codeLists = {
   'ethnic-groups-asian': <ICodeListItem[]>require('./code-lists/ethnic-groups-asian.json'),
   'ethnic-groups-black': <ICodeListItem[]>require('./code-lists/ethnic-groups-black.json'),
   'ethnic-groups-arab': <ICodeListItem[]>require('./code-lists/ethnic-groups-arab.json'),
+  'ethnic-groups-other': <ICodeListItem[]>[
+    ...require('./code-lists/ethnic-groups-white.json'),
+    ...require('./code-lists/ethnic-groups-mixed.json'),
+    ...require('./code-lists/ethnic-groups-asian.json'), 
+    ...require('./code-lists/ethnic-groups-black.json'),
+    ...require('./code-lists/ethnic-groups-arab.json')
+  ],
   occupation: <ICodeListItem[]>require('./code-lists/occupations.json'),
   'sic-alphabetical': <ICodeListItem[]>require('./code-lists/sic-alphabetical.json'),
 };
