@@ -65,11 +65,16 @@ export default function initialiseSearch(server: Express): void {
             threshold: 0.2
           });
           
-          const results = fuse.search(query);
+          const allResults = fuse.search(query);
+          const results: any[] = allResults.slice(0, maxResults);
+          
+          if (language && language === 'en') {
+            results.forEach(result => result['en'] = result['en-gb']);
+          }
 
           const responseData = {
-            results: results.slice(0, maxResults),
-            totalResults: results.length
+            results: results,
+            totalResults: allResults.length
           };
 
           response.setHeader('Access-Control-Allow-Origin', origin);
