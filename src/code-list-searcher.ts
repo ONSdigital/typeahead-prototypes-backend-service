@@ -57,7 +57,7 @@ function handleGet(request: Request, response: Response, list: ICodeListItem[]) 
     const language = request.query.lang;
     const maxResults = request.query.max ? parseInt(request.query.max, 10) : 10;
 
-    handleRequest(request, response, origin, list, query, language, maxResults);
+    handleRequest(response, origin, list, query, language, maxResults);
   } else {
     response.status(401);
     response.send();
@@ -72,14 +72,14 @@ function handlePost(request: Request, response: Response, list: ICodeListItem[])
     const language = request.body.lang;
     const maxResults = request.body.max ? parseInt(request.body.max, 10) : 10;
     
-    handleRequest(request, response, origin, list, query, language, maxResults);
+    handleRequest(response, origin, list, query, language, maxResults);
   } else {
     response.status(401);
     response.send();
   }
 }
 
-function handleRequest(request: Request, response: Response, origin: string, list: ICodeListItem[], query: string, language: string, maxResults: number) {
+function handleRequest(response: Response, origin: string, list: ICodeListItem[], query: string, language: string, maxResults: number) {
   const languages: string[] = [];
 
   if (language) {
