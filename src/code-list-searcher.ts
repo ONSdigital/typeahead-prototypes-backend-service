@@ -41,10 +41,10 @@ export default function initialiseSearch(server: Express): void {
     if (codeLists.hasOwnProperty(listName)) {
       const list: ICodeListItem[] = (<any>codeLists)[listName];
 
-      server.get(`/${listName}`, (request, response) => handlePost(request, response, list));
+      server.get(`/${listName}`, (request, response) => handleGet(request, response, list));
 
       // Used in prototypes - GET should be used otherwise
-      server.post(`/${listName}`, (request, response) => handleGet(request, response, list));
+      server.post(`/${listName}`, (request, response) => handlePost(request, response, list));
     }
   }
 }
